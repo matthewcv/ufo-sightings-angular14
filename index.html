@@ -7,6 +7,7 @@
     <script type="text/javascript" src="app.js"></script>
     <script type="text/javascript" src="app-controller.js"></script>
     <script type="text/javascript" src="user-controller.js"></script>
+    <script type="text/javascript" src="sighting-form-controller.js"></script>
     <script type="text/javascript" src="user-service.js"></script>
     <script type="text/javascript" src="states.js"></script>
     <style>
@@ -27,18 +28,7 @@
 
 
 
-<div ng-if="ctrl.userService.isLoggedIn">
-    <h3>Report a UFO Sighting</h3>
-    <form>
-        <div><label>When? <input placeholder="Date and Time" ng-model="ctrl.newUfoReport.occurred"></label></div>
-        <div><label>Where? <input placeholder="City"  ng-model="ctrl.newUfoReport.city"> 
-            <select placeholder="State" ng-model="ctrl.newUfoReport.state">
-                <option ng-repeat="state in ctrl.states" value="{{state.abbreviation}}">{{state.name}}</option>
-            </select>
-        </div>
-        <div><label>What? <textarea cols="60" rows="5" ng-model="ctrl.newUfoReport.description"></textarea></label></div>
-        <div><button ng-click="ctrl.addUfoReport()">Report it!</button></div>
-    </form>
+<div ng-if="ctrl.userService.isLoggedIn" ng-include="'sighting-form-view.html'">
 </div>
 
 <div ng-include="'user-view.html'"></div>

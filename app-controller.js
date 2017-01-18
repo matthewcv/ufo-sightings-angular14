@@ -5,16 +5,15 @@
         .controller('AppController', AppController);    //register the controller with the module.
 
     //define the controller. 
-    function AppController(windowService, userService, states) {
+    function AppController(windowService, userService) {
         this.ufoReports = UFO_REPORTS;
-        this.states = states;
+        
         this.userService = userService;
-        this.newUfoReport = {};
         
         this.windowService = windowService;
     }
     
-    AppController.$inject = ['$window','userService','states'];
+    AppController.$inject = ['$window','userService'];
 
     
     AppController.prototype.addUfoReport = function(){
