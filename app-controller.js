@@ -5,23 +5,24 @@
         .controller('AppController', AppController);    //register the controller with the module.
 
     //define the controller. 
-    function AppController(windowService) {
+    function AppController(windowService, userService) {
         this.ufoReports = UFO_REPORTS;
         this.states = STATES;
-        this.isLoggedIn = true;
+        this.userService = userService;
+
         this.newUfoReport = {};
         
-        this.userName = 'Fox Mulder';
         this.windowService = windowService;
     }
     
-    AppController.$inject = ['$window'];
+    AppController.$inject = ['$window','userService'];
 
-    AppController.prototype.logIn = function(){
-        if(this.userName){
-            this.isLoggedIn = true;
+    AppController.prototype.logIn = function(userName){
+        if(userName){
+            this.userService.logIn(userName);
         }
     }
+    
     
     AppController.prototype.addUfoReport = function(){
         UFO_REPORTS.push(this.newUfoReport);
