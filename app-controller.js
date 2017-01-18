@@ -15,7 +15,7 @@
         this.windowService = windowService;
     }
     
-    AppComponent.$inject = ['$window'];
+    AppController.$inject = ['$window'];
 
     AppController.prototype.logIn = function(){
         if(this.userName){
