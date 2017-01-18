@@ -1,6 +1,7 @@
 <div ng-controller="UserController as ctrl">
     <h4 ng-if="ctrl.userService.isLoggedIn">
         Hello, {{ctrl.userService.userName}}
+        <a href="" ng-click="ctrl.userService.logOut()">log out</a>
     </h4>
 
     <div ng-if="!ctrl.userService.isLoggedIn">
