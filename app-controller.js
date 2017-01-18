@@ -9,7 +9,6 @@
         this.ufoReports = UFO_REPORTS;
         this.states = states;
         this.userService = userService;
-
         this.newUfoReport = {};
         
         this.windowService = windowService;
@@ -17,12 +16,6 @@
     
     AppController.$inject = ['$window','userService','states'];
 
-    AppController.prototype.logIn = function(userName){
-        if(userName){
-            this.userService.logIn(userName);
-        }
-    }
-    
     
     AppController.prototype.addUfoReport = function(){
         UFO_REPORTS.push(this.newUfoReport);

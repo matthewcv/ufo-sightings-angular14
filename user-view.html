@@ -1,0 +1,12 @@
+<div ng-controller="UserController as ctrl">
+    <h4 ng-if="ctrl.userService.isLoggedIn">
+        Hello, {{ctrl.userService.userName}}
+    </h4>
+
+    <div ng-if="!ctrl.userService.isLoggedIn">
+        <form>
+            <h4>Log In</h4>
+            <label>Name? <input type="text" ng-model="userName" ></label> <button ng-click="ctrl.logIn(userName)">Log me in</button>
+        </form>
+    </div>
+</div>
