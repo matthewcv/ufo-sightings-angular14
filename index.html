@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>UFO Sightings</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+
     <script type="text/javascript" src="node_modules/angular/angular.js"></script>
     <script type="text/javascript" src="app.js"></script>
     <script type="text/javascript" src="app-controller.js"></script>
@@ -20,18 +22,19 @@
     </style>
 </head>
 <body ng-app="ufo-sightings" ng-controller="AppController as ctrl">
+<div class="container">
 
-<div ng-repeat="report in ctrl.ufoReports">
-    <b>{{report.occurred}} {{report.city}}, {{report.state}}</b>
-    <p>{{report.description}}</p>
+    <div ng-include="'user-view.html'"></div>
+    <div ng-if="ctrl.userService.isLoggedIn" ng-include="'sighting-form-view.html'"></div>
+
+    <div ng-repeat="report in ctrl.ufoReports">
+        <b>{{report.occurred}} {{report.city}}, {{report.state}}</b>
+        <p>{{report.description}}</p>
+    </div>
+
 </div>
 
 
-
-<div ng-if="ctrl.userService.isLoggedIn" ng-include="'sighting-form-view.html'">
-</div>
-
-<div ng-include="'user-view.html'"></div>
 
 </body>
 </html>

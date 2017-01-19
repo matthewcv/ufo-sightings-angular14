@@ -11,10 +11,13 @@
 
     SightingFormController.$inject = ['states','$scope'];
 
-    SightingFormController.prototype.reportUfoSighting = function(){
-
-        this.scope.$emit('UfoSightingReported',this.newUfoSighting);
-        this.newUfoSighting = {};
+    SightingFormController.prototype.reportUfoSighting = function(form){
+        if(form.$valid){
+            this.scope.$emit('UfoSightingReported',this.newUfoSighting);
+            this.newUfoSighting = {};
+            form.$setPristine();
+            form.$setUntouched();
+        }
     }
     
 var UFO_SHAPES=[
