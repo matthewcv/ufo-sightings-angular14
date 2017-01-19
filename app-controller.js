@@ -17,7 +17,9 @@
             that.addUfoReport(report);
         });
 
-        this.ufoSightingsService.getUfoSightings();
+        this.ufoSightingsService.getUfoSightings().then(function(data){
+            that.ufoReports = data;
+        });
     }
     
     AppController.$inject = ['$window','userService','$scope','ufoSightingsService'];
