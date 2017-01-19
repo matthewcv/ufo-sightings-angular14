@@ -5,20 +5,25 @@
         .controller('AppController', AppController);    //register the controller with the module.
 
     //define the controller. 
-    function AppController(windowService, userService) {
+    function AppController(windowService, userService, $scope) {
         this.ufoReports = UFO_REPORTS;
         
         this.userService = userService;
         
         this.windowService = windowService;
+
+        this.scope = $scope;
+        var that = this;
+        this.scope.$on("UfoSightingReported", function(evt, report){
+            that.addUfoReport(report);
+        });
     }
     
-    AppController.$inject = ['$window','userService'];
+    AppController.$inject = ['$window','userService','$scope'];
 
     
-    AppController.prototype.addUfoReport = function(){
-        UFO_REPORTS.push(this.newUfoReport);
-        this.newUfoReport = {};
+    AppController.prototype.addUfoReport = function(newUfoReport){
+        UFO_REPORTS.push(newUfoReport);
         this.windowService.alert('Thankyou, ' + this.userName + '.\nYour sighting has been reported.');
     }
     
