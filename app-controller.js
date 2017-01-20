@@ -25,10 +25,14 @@
     AppController.$inject = ['$window','userService','$scope','ufoSightingsService'];
 
     
-    AppController.prototype.addUfoReport = function(newUfoReport){
-        this.windowService.alert('Thankyou, ' + this.userName + '.\nYour sighting has been reported.');
+    AppController.prototype.addUfoReport = function(sighting){
+        var that = this;
+        this.ufoSightingsService.saveUfoSightingReport(sighting).then(function(savedSighting){
+            that.ufoReports.splice(0,0,savedSighting);
+            that.windowService.alert('Thankyou, ' + that.userService.userName + '.\nYour sighting has been reported.');
+        })
+        
     }
-    
     
    
    /**
