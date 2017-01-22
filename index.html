@@ -10,6 +10,10 @@
     <script type="text/javascript" src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
     <script type="text/javascript" src="app.js"></script>
     <script type="text/javascript" src="app-controller.js"></script>
+    <script type="text/javascript" src="report-sighting-controller.js"></script>
+    <script type="text/javascript" src="home-controller.js"></script>
+    <script type="text/javascript" src="sightings-controller.js"></script>
+    <script type="text/javascript" src="sighting-detail-controller.js"></script>
     <script type="text/javascript" src="user-controller.js"></script>
     <script type="text/javascript" src="sighting-form-controller.js"></script>
     <script type="text/javascript" src="user-service.js"></script>
@@ -29,12 +33,7 @@
 <div class="container">
 
     <div ng-include="'user-view.html'"></div>
-    <div ng-if="ctrl.userService.isLoggedIn" ng-include="'sighting-form-view.html'"></div>
 
-    <div ng-repeat="report in ctrl.ufoReports">
-        <b>{{report.occurred}} {{report.city}}, {{report.state}}</b>
-        <p>{{report.description}}</p>
-    </div>
 
 </div>
 

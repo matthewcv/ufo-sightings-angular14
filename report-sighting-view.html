@@ -1,0 +1,8 @@
+<div>
+    <div ng-if="ctrl.userService.isLoggedIn" ng-include="'sighting-form-view.html'"></div>
+
+    <div style="margin-top: 15px" ng-if="ctrl.showThanks" class="alert alert-success" role="alert">
+  <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+  Thank you! Your sighting has been recorded. The truth is out there.
+</div>
+</div>
