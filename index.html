@@ -35,10 +35,11 @@
     <div ng-include="'user-view.html'"></div>
 
     <ul class="nav nav-pills">
-        <li role="presentation" ><a >Home</a></li>
+        <li role="presentation" ><a  ui-sref="home">Home</a></li>
         <li role="presentation" ><a >Sightings</a></li>
-        <li ng-if="ctrl.userService.isLoggedIn" role="presentation"><a >Report a sighting</a></li>
+        <li ng-if="ctrl.userService.isLoggedIn" role="presentation"><a  ui-sref="report-sighting">Report a sighting</a></li>
     </ul>
+    <div ui-view></div>
 
 </div>
 
