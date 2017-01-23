@@ -1,5 +1,5 @@
 (function(){
-    angular.module("ufo-sightings", ["ui.router"])  //tells angular that we are creating a module named 'ufo-sightings' with no dependencies.
+    angular.module("ufo-sightings", ["ui.router","myWidgets"])  //tells angular that we are creating a module named 'ufo-sightings' with no dependencies.
                 .config(ConfigureApp)
 
 
