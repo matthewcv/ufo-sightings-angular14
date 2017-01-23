@@ -49,7 +49,12 @@
             {
                 url:"/{id}",
                 templateUrl:"sighting-detail-view.html",
-                controller:"SightingDetailController as ctrl"
+                controller:"SightingDetailController as ctrl",
+                resolve:{
+                    sighting:['ufoSightingsService','$stateParams',function(ufoSightingsService,stateParams){
+                        return ufoSightingsService.getUfoSighting(stateParams.id);
+                    }]
+                }
             }
         );
 
